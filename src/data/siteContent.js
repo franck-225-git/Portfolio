@@ -3,7 +3,7 @@ export const projects = [
     tag: "Power Platform",
     title: "GMAO — Gestion de la Maintenance Assistée par Ordinateur",
     description:
-      "Développement d'une application Power Apps complète pour la gestion de la maintenance : planification des interventions, suivi des équipements, tableaux de bord Power BI et automatisation des alertes via Power Automate.",
+      "Application Power Apps développée pour CARENA, couvrant l'ensemble du cycle de maintenance : planification et suivi des interventions, gestion du parc d'équipements et historisation des pannes. Power Automate orchestre les alertes automatiques (échéances, anomalies détectées) et des tableaux de bord Power BI donnent aux équipes une vision décisionnelle en temps réel de l'activité de maintenance.",
     visibility: "Privé",
     caseStudyUrl: "",
   },
@@ -11,15 +11,15 @@ export const projects = [
     tag: "Power Platform",
     title: "Application de gestion de clinique et stock médicaments",
     description:
-      "Conception d'une solution médicale sous Power Apps couvrant les consultations, fiches de suivi patient, repos médical, envoi automatique de mails aux responsables via Power Automate et gestion du stock de médicaments avec alertes de rupture.",
+      "Solution Power Apps développée pour CARENA, couvrant le parcours patient de la consultation à la fiche de suivi médical, ainsi que la gestion des repos médicaux. Power Automate automatise l'envoi de mails aux responsables pour les cas nécessitant un suivi particulier, tandis qu'un module de gestion de stock avec alertes de rupture sécurise l'approvisionnement en médicaments.",
     visibility: "Privé",
     caseStudyUrl: "",
   },
   {
     tag: "Power Platform",
-    title: "Application de facturation compatible Sage X3",
+    title: "FLUXIA — Automatisation de la facturation sous-traitants",
     description:
-      "Réalisation d'une application de facturation avec Power Apps et Power Automate, génération automatique des factures client et export d'un fichier au format compatible Sage X3 pour intégration directe.",
+      "Solution end-to-end pour CARENA automatisant le calcul, le contrôle et l'export comptable des heures de sous-traitance : application Power Apps à 4 écrans (validation, KPIs en temps réel, anti-doublon), 5 flows Power Automate et 3 procédures SQL Server (majoration horaire par matricule/catégorie, répartition analytique via fenêtres OVER PARTITION BY) générant un fichier d'import Sage X3.",
     visibility: "Privé",
     caseStudyUrl: "",
   },
@@ -32,10 +32,34 @@ export const projects = [
     caseStudyUrl: "",
   },
   {
+    tag: "Migration & Paie",
+    title: "WEBPNM — Migration ASP.NET Web Forms vers Blazor Server",
+    description:
+      "Réécriture complète d'une application de paie en Blazor Server (.NET 8) : parsing d'un export paie fixed-width, génération de fichiers d'import Sage PNM, gestion des utilisateurs via ASP.NET Core Identity, architecture en couches avec EF Core/SQL Server et déploiement Kestrel/Nginx ou IIS.",
+    visibility: "Privé",
+    caseStudyUrl: "",
+  },
+  {
+    tag: "Intégration Sage",
+    title: "SageInterfaceService — Service .NET 9 d'interfaçage Sage",
+    description:
+      "Service d'automatisation des échanges de fichiers avec Sage : réception, transformation (conversion en .txt) et mise à disposition des fichiers via des endpoints API, avec une architecture modulaire séparant parsing, conversion et persistance.",
+    visibility: "Privé",
+    caseStudyUrl: "",
+  },
+  {
     tag: "Intégration Bancaire",
     title: "Macro d'import de suspens bancaires — NSIA",
     description:
       "Mise en place d'une macro d'automatisation pour l'import et le traitement des suspens bancaires, réduisant les opérations manuelles et fiabilisant le rapprochement des données.",
+    visibility: "Privé",
+    caseStudyUrl: "",
+  },
+  {
+    tag: "Développement Web",
+    title: "NSIA Frontend — Plateforme d'administration et d'import de données",
+    description:
+      "Application interne pour NSIA (React 19/TypeScript) : authentification et gestion des utilisateurs, import Excel multi-feuilles avec suivi en temps réel, gestion multi-sites/filiales (X3), historique détaillé des imports et notifications email.",
     visibility: "Privé",
     caseStudyUrl: "",
   },
@@ -53,33 +77,33 @@ export const services = [
   {
     title: "Intégrations ERP et flux métier",
     description:
-      "Développement de services et d'API pour connecter vos outils ERP, comptables et applicatifs — sans rupture, sans perte de données.",
+      "Conception de services et d'API qui relient vos outils ERP, comptables et applicatifs — de bout en bout, sans rupture ni perte de données.",
     points: ["Sage X3", "Sage 100", "Odoo"],
   },
   {
     title: "Solutions Power Platform",
     description:
-      "Conception d'applications métier sur mesure avec Power Apps, automatisation des processus via Power Automate, et reporting décisionnel avec Power BI.",
+      "Applications métier sur mesure avec Power Apps, automatisation des processus avec Power Automate, et pilotage décisionnel avec Power BI.",
     points: ["Power Apps", "Power Automate", "Power BI"],
   },
   {
     title: "Développement web et applicatif",
     description:
-      "Création d'interfaces et d'outils logiciels adaptés à vos besoins opérationnels, conçus pour être maintenables et évolutifs dans le temps.",
+      "Interfaces et outils logiciels pensés pour vos besoins opérationnels réels — maintenables, évolutifs, et conçus pour durer.",
     points: ["React", "C#", "HTML/CSS/JS", "SQL"],
   },
   {
     title: "Intégrateur Sage X3",
     description:
-      "Paramétrage, intégration et développement sur l'ERP Sage X3 : imports de données, développements spécifiques, interfaces et connecteurs métier.",
+      "Paramétrage, intégration et développements spécifiques sur l'ERP Sage X3 : imports de données, interfaces et connecteurs métier sur mesure.",
     points: ["Sage X3", "Scripts d'import", "Connecteurs API"],
   },
 ];
 
 export const stats = [
-  { value: "3", label: "ans d'expérience" },
-  { value: "10+", label: "projets réalisés" },
-  { value: "3", label: "domaines maîtrisés" },
+  { value: "3", label: "ans d'expérience terrain" },
+  { value: "10+", label: "projets livrés en production" },
+  { value: "3", label: "domaines d'expertise" },
 ];
 
 export const navLinks = [
@@ -96,9 +120,9 @@ export const profile = {
   location: "Côte d'Ivoire",
   availability: "Ouvert aux missions et aux opportunités",
   yearLabel: "Portfolio 2026",
-  heroTitle: "Je connecte vos systèmes. Je fiabilise vos données.",
+  heroTitle: "Vos systèmes connectés. Vos données fiabilisées.",
   heroDescription:
-    "Développeur avec 3 ans d'expérience et plus de 10 projets livrés, je conçois des intégrations ERP robustes, des applications Power Platform sur mesure et des API métier qui font vraiment tourner les opérations.",
+    "Fort de 3 ans d'expérience et de plus de 10 projets livrés en production, je conçois des intégrations ERP robustes, des applications Power Platform sur mesure et des API métier taillées pour les opérations réelles de l'entreprise.",
   highlights: [
     "Intégration ERP",
     "Power Platform",
@@ -107,9 +131,9 @@ export const profile = {
     "Automatisation",
     "Full Stack",
   ],
-  aboutTitle: "Un développeur qui comprend le métier autant que le code.",
+  aboutTitle: "Un développeur qui parle métier autant que code.",
   aboutDescription:
-    "De la gestion de la maintenance à la facturation électronique réglementaire, en passant par la paie et la gestion clinique, j'interviens sur des sujets concrets avec des contraintes réelles. Mon approche : comprendre le besoin fonctionnel, livrer un outil fiable, assurer la pérennité de ce qui est mis en place.",
+    "De la maintenance industrielle à la facturation électronique réglementaire, en passant par la paie et la gestion clinique, j'interviens sur des enjeux concrets, avec des contraintes réelles de production. Ma méthode : cerner précisément le besoin fonctionnel, livrer un outil fiable, et garantir sa pérennité dans le temps.",
   contactEmail: "konesekou15137@gmail.com",
   profileImage: "/profile.jpg",
 };

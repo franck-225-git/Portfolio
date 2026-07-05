@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color: #0b1b2b;
+  color: #0c1b2a;
   font-family: "IBM Plex Sans", sans-serif;
 }
 
@@ -14,12 +14,12 @@ html {
 body {
   margin: 0;
   text-rendering: geometricPrecision;
-  background: #edf1f6;
+  background: #f3efe6;
 }
 
 ::selection {
-  background: rgba(183, 121, 31, 0.26);
-  color: #0b1b2b;
+  background: rgba(156, 107, 26, 0.28);
+  color: #0c1b2a;
 }
 
 @keyframes rise {

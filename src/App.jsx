@@ -52,22 +52,23 @@ export default function App() {
       <BackgroundDecor />
 
       {/* ── Top step nav ── */}
-      <header className="sticky top-0 z-30 border-b border-ink/8 bg-white/90 backdrop-blur-md">
-        <div className="mx-auto w-[min(1240px,94vw)] py-3">
+      <header className="sticky top-0 z-30 border-b border-ink/10 bg-white/85 shadow-[0_1px_0_rgba(12,27,42,0.04)] backdrop-blur-md">
+        <div className="h-[2px] bg-gradient-to-r from-ink via-accent to-lagoon" />
+        <div className="mx-auto w-[min(1240px,94vw)] py-3.5">
           {/* Desktop : nom + labels inline */}
           <div className="hidden items-center justify-between gap-4 md:flex">
-            <span className="shrink-0 font-display text-xs font-bold tracking-[0.16em] text-ink">
+            <span className="shrink-0 font-display text-sm font-semibold tracking-[0.14em] text-ink">
               {profile.name}
             </span>
-            <nav className="no-scrollbar flex items-center gap-0.5 overflow-x-auto">
+            <nav className="no-scrollbar flex items-center gap-1 overflow-x-auto">
               {STEPS.map((s, i) => (
                 <button
                   key={s.label}
                   onClick={() => setStep(i)}
-                  className={`whitespace-nowrap rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.08em] transition ${
+                  className={`whitespace-nowrap rounded-full px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.1em] transition ${
                     i === step
-                      ? "bg-ink text-white"
-                      : "text-ink/55 hover:text-ink"
+                      ? "bg-ink text-white shadow-sm"
+                      : "text-muted hover:text-ink"
                   }`}
                 >
                   {s.label}
@@ -79,7 +80,7 @@ export default function App() {
           {/* Mobile : nom centré + step actif + dots */}
           <div className="flex flex-col items-center gap-2 md:hidden">
             <div className="flex w-full items-center justify-between">
-              <span className="font-display text-[11px] font-bold tracking-[0.14em] text-ink/50">
+              <span className="font-display text-[11px] font-bold tracking-[0.14em] text-muted">
                 {STEPS[step].label}
               </span>
               <span className="font-display text-[11px] font-bold tracking-[0.14em] text-ink">
@@ -95,7 +96,7 @@ export default function App() {
                   key={i}
                   onClick={() => setStep(i)}
                   className={`h-1 rounded-full transition-all duration-300 ${
-                    i === step ? "w-5 bg-ink" : "w-1 bg-ink/20"
+                    i === step ? "w-5 bg-accent" : "w-1 bg-ink/15"
                   }`}
                   aria-label={STEPS[i].label}
                 />
@@ -114,12 +115,12 @@ export default function App() {
       </main>
 
       {/* ── Bottom prev / next ── */}
-      <div className="sticky bottom-0 z-20 border-t border-ink/8 bg-white/90 backdrop-blur-md">
-        <div className="mx-auto flex w-[min(1240px,94vw)] items-center justify-between py-3">
+      <div className="sticky bottom-0 z-20 border-t border-ink/10 bg-white/85 backdrop-blur-md">
+        <div className="mx-auto flex w-[min(1240px,94vw)] items-center justify-between py-3.5">
           <button
             onClick={() => setStep((s) => Math.max(0, s - 1))}
             disabled={step === 0}
-            className="rounded-full border border-ink/20 px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-ink/70 transition disabled:pointer-events-none disabled:opacity-25 hover:bg-ink hover:text-white"
+            className="rounded-full border border-ink/20 px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-ink/70 transition disabled:pointer-events-none disabled:opacity-25 hover:border-ink hover:bg-ink hover:text-white"
           >
             ← Precedent
           </button>
@@ -143,7 +144,7 @@ export default function App() {
           <button
             onClick={() => setStep((s) => Math.min(STEPS.length - 1, s + 1))}
             disabled={step === STEPS.length - 1}
-            className="rounded-full border border-ink/20 px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-ink/70 transition disabled:pointer-events-none disabled:opacity-25 hover:bg-ink hover:text-white"
+            className="rounded-full bg-ink px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-white transition disabled:pointer-events-none disabled:opacity-25 hover:bg-accent"
           >
             Suivant →
           </button>

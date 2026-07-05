@@ -47,14 +47,18 @@ export default function ContactSection({ email }) {
 
   return (
     <section id="contact" className="mb-12">
-      <div className="rounded-[1.75rem] border border-ink/15 bg-ink p-6 text-white md:p-8">
+      <div className="relative overflow-hidden rounded-[1.75rem] border border-ink/10 bg-ink p-6 text-white shadow-premium md:p-9">
+        <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-accent to-lagoon" />
         {/* Header */}
         <div className="mb-8 grid gap-4 md:grid-cols-[1fr_auto] md:items-start">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.12em] text-white/60">
-              Contact
-            </p>
-            <h2 className="mt-2 font-display text-3xl md:text-5xl">
+            <div className="flex items-center gap-3">
+              <span className="h-px w-8 bg-accent" />
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-white/55">
+                Contact
+              </p>
+            </div>
+            <h2 className="mt-3 font-display text-3xl md:text-5xl">
               Discutons de votre besoin.
             </h2>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/70">
