@@ -22,3 +22,8 @@ Thumbs.db
 .vscode/
 .idea/
 figit
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
