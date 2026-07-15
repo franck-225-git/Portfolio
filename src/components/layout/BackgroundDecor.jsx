@@ -3,19 +3,11 @@ export default function BackgroundDecor() {
     <>
       <div
         aria-hidden
-        className="pointer-events-none fixed inset-0 -z-20 bg-[radial-gradient(circle_at_50%_0%,#faf8f2_0,#f3efe6_45%,#ece6d8_100%)]"
+        className="pointer-events-none fixed inset-0 -z-20 bg-[radial-gradient(900px_600px_at_78%_-8%,rgba(255,255,255,0.045),transparent_60%),radial-gradient(760px_620px_at_8%_12%,rgba(255,255,255,0.04),transparent_58%),radial-gradient(700px_700px_at_60%_108%,rgba(255,255,255,0.028),transparent_60%)]"
       />
       <div
         aria-hidden
-        className="pointer-events-none fixed inset-0 -z-10 opacity-[0.35] [background:linear-gradient(rgba(12,27,42,0.035)_1px,transparent_1px)_0_0/100%_64px]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none fixed right-[-8rem] top-[-6rem] -z-10 h-[26rem] w-[26rem] rounded-full bg-[#9c6b1a]/[0.07] blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none fixed inset-x-0 bottom-0 -z-10 h-56 bg-gradient-to-t from-[#0c1b2a]/[0.05] to-transparent"
+        className="pointer-events-none fixed inset-0 -z-10 opacity-50 [background-image:linear-gradient(rgba(255,255,255,0.022)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.022)_1px,transparent_1px)] [background-size:64px_64px] [mask-image:radial-gradient(ellipse_100%_80%_at_50%_0%,#000_40%,transparent_100%)]"
       />
     </>
   );

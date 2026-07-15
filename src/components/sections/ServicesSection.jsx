@@ -1,43 +1,48 @@
+import GhostNumber from "../common/GhostNumber";
+import Reveal from "../common/Reveal";
+
 export default function ServicesSection({ services }) {
   return (
-    <section id="services" className="mb-16">
-      <div className="mb-7">
-        <div className="flex items-center gap-3">
-          <span className="h-px w-8 bg-accent" />
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-lagoon">
-            Expertise
-          </p>
-        </div>
-        <h2 className="mt-3 font-display text-3xl text-ink md:text-5xl">
-          Services proposes
+    <section id="services" className="scroll-mt-20 py-[88px]">
+      <Reveal className="relative mb-9">
+        <GhostNumber value="03" className="top-[-52px]" />
+        <p className="font-mono text-xs uppercase tracking-[0.2em] text-bright">
+          03 / Expertise
+        </p>
+        <h2 className="mt-3.5 font-display text-[clamp(30px,4.4vw,50px)] font-semibold leading-[1.05] tracking-[-0.02em]">
+          Comment je peux vous aider
         </h2>
-      </div>
-      <div className="grid gap-5 md:grid-cols-3">
-        {services.map((service, index) => (
-          <article
+      </Reveal>
+
+      <div className="grid grid-cols-1 gap-[18px] min-[620px]:grid-cols-2 min-[940px]:grid-cols-4">
+        {services.map((service, i) => (
+          <Reveal
             key={service.title}
-            className="rounded-2xl border border-ink/10 bg-white p-5 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-ink/20"
+            variant={i % 2 === 0 ? "left" : "right"}
+            delay={(i % 2) * 90}
           >
-            <p className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-accent/40 font-display text-xs text-accent">
-              0{index + 1}
-            </p>
-            <h3 className="font-display text-2xl leading-tight text-ink">
-              {service.title}
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted">
-              {service.description}
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {service.points.map((point) => (
-                <span
-                  key={point}
-                  className="rounded-md border border-ink/10 bg-sand px-2.5 py-1 text-xs font-bold uppercase tracking-[0.08em] text-ink/70"
-                >
-                  {point}
-                </span>
-              ))}
-            </div>
-          </article>
+            <article className="h-full rounded-[18px] border border-white/[0.08] bg-gradient-to-b from-[#12171f] to-[#0d1119] p-6 transition duration-300 hover:-translate-y-1 hover:border-white/40">
+              <span className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-[11px] border border-white/35 bg-white/[0.08] font-display text-[13px] font-bold text-bright">
+                {service.num}
+              </span>
+              <h3 className="mt-[18px] font-display text-[19px] font-semibold leading-[1.3] text-ink">
+                {service.title}
+              </h3>
+              <p className="mt-[11px] text-sm leading-[1.6] text-[#98a2b2]">
+                {service.description}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-[7px]">
+                {service.points.map((point) => (
+                  <span
+                    key={point}
+                    className="rounded-lg border border-white/10 px-[11px] py-[5px] font-mono text-[11px] text-body"
+                  >
+                    {point}
+                  </span>
+                ))}
+              </div>
+            </article>
+          </Reveal>
         ))}
       </div>
     </section>

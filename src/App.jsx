@@ -1,159 +1,51 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import BackgroundDecor from "./components/layout/BackgroundDecor";
 import Footer from "./components/layout/Footer";
+import Header from "./components/layout/Header";
 import AboutSection from "./components/sections/AboutSection";
 import ContactSection from "./components/sections/ContactSection";
-import ExperienceSection from "./components/sections/ExperienceSection";
 import HeroSection from "./components/sections/HeroSection";
 import ProjectsSection from "./components/sections/ProjectsSection";
 import ServicesSection from "./components/sections/ServicesSection";
 import SkillsSection from "./components/sections/SkillsSection";
 import {
-  experiences,
-  formations,
+  navLinks,
   profile,
   projects,
   services,
   skillGroups,
   socialLinks,
   stats,
+  values,
 } from "./data/siteContent";
 
-const STEPS = [
-  { label: "Accueil" },
-  { label: "Projets" },
-  { label: "Competences" },
-  { label: "Parcours" },
-  { label: "Services" },
-  { label: "A propos" },
-  { label: "Contact" },
-];
-
 export default function App() {
-  const [step, setStep] = useState(0);
   const year = useMemo(() => new Date().getFullYear(), []);
 
-  const pages = [
-    <HeroSection key="hero" profile={profile} stats={stats} />,
-    <ProjectsSection key="projects" projects={projects} />,
-    <SkillsSection key="skills" skillGroups={skillGroups} />,
-    <ExperienceSection
-      key="exp"
-      experiences={experiences}
-      formations={formations}
-    />,
-    <ServicesSection key="services" services={services} />,
-    <AboutSection key="about" profile={profile} />,
-    <ContactSection key="contact" email={profile.contactEmail} />,
-  ];
-
   return (
-    <div className="relative flex min-h-screen flex-col overflow-x-clip text-ink">
+    <div className="relative min-h-screen overflow-x-clip bg-night">
       <BackgroundDecor />
 
-      {/* ── Top step nav ── */}
-      <header className="sticky top-0 z-30 border-b border-ink/10 bg-white/85 shadow-[0_1px_0_rgba(12,27,42,0.04)] backdrop-blur-md">
-        <div className="h-[2px] bg-gradient-to-r from-ink via-accent to-lagoon" />
-        <div className="mx-auto w-[min(1240px,94vw)] py-3.5">
-          {/* Desktop : nom + labels inline */}
-          <div className="hidden items-center justify-between gap-4 md:flex">
-            <span className="shrink-0 font-display text-sm font-semibold tracking-[0.14em] text-ink">
-              {profile.name}
-            </span>
-            <nav className="no-scrollbar flex items-center gap-1 overflow-x-auto">
-              {STEPS.map((s, i) => (
-                <button
-                  key={s.label}
-                  onClick={() => setStep(i)}
-                  className={`whitespace-nowrap rounded-full px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.1em] transition ${
-                    i === step
-                      ? "bg-ink text-white shadow-sm"
-                      : "text-muted hover:text-ink"
-                  }`}
-                >
-                  {s.label}
-                </button>
-              ))}
-            </nav>
-          </div>
+      <Header
+        navLinks={navLinks}
+        brandName={profile.brandName}
+        initial={profile.initial}
+      />
 
-          {/* Mobile : nom centré + step actif + dots */}
-          <div className="flex flex-col items-center gap-2 md:hidden">
-            <div className="flex w-full items-center justify-between">
-              <span className="font-display text-[11px] font-bold tracking-[0.14em] text-muted">
-                {STEPS[step].label}
-              </span>
-              <span className="font-display text-[11px] font-bold tracking-[0.14em] text-ink">
-                {profile.name.split(" ").slice(-1)[0]}
-              </span>
-              <span className="text-[11px] font-bold text-ink/40">
-                {step + 1} / {STEPS.length}
-              </span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              {STEPS.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setStep(i)}
-                  className={`h-1 rounded-full transition-all duration-300 ${
-                    i === step ? "w-5 bg-accent" : "w-1 bg-ink/15"
-                  }`}
-                  aria-label={STEPS[i].label}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* ── Page content (key triggers animate-rise on change) ── */}
-      <main
-        key={step}
-        className="mx-auto w-[min(1240px,94vw)] flex-1 animate-rise py-10 md:py-14"
-      >
-        {pages[step]}
+      <main id="top" className="relative z-10 mx-auto w-[min(1180px,92vw)]">
+        <HeroSection profile={profile} stats={stats} />
+        <ProjectsSection projects={projects} />
+        <SkillsSection skillGroups={skillGroups} />
+        <ServicesSection services={services} />
+        <AboutSection profile={profile} values={values} />
+        <ContactSection email={profile.contactEmail} />
       </main>
 
-      {/* ── Bottom prev / next ── */}
-      <div className="sticky bottom-0 z-20 border-t border-ink/10 bg-white/85 backdrop-blur-md">
-        <div className="mx-auto flex w-[min(1240px,94vw)] items-center justify-between py-3.5">
-          <button
-            onClick={() => setStep((s) => Math.max(0, s - 1))}
-            disabled={step === 0}
-            className="rounded-full border border-ink/20 px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-ink/70 transition disabled:pointer-events-none disabled:opacity-25 hover:border-ink hover:bg-ink hover:text-white"
-          >
-            ← Precedent
-          </button>
-
-          {/* dot indicators */}
-          <div className="flex items-center gap-1.5">
-            {STEPS.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setStep(i)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === step
-                    ? "w-6 bg-accent"
-                    : "w-1.5 bg-ink/20 hover:bg-ink/40"
-                }`}
-                aria-label={STEPS[i].label}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={() => setStep((s) => Math.min(STEPS.length - 1, s + 1))}
-            disabled={step === STEPS.length - 1}
-            className="rounded-full bg-ink px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-white transition disabled:pointer-events-none disabled:opacity-25 hover:bg-accent"
-          >
-            Suivant →
-          </button>
-        </div>
-      </div>
-
-      {step === STEPS.length - 1 && (
-        <Footer year={year} name={profile.name} socialLinks={socialLinks} />
-      )}
+      <Footer
+        year={year}
+        brandName={profile.brandName}
+        socialLinks={socialLinks}
+      />
     </div>
   );
 }

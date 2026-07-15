@@ -1,13 +1,15 @@
 import { useState } from "react";
+import GhostNumber from "../common/GhostNumber";
+import Reveal from "../common/Reveal";
+
+const EMPTY_FORM = { name: "", email: "", subject: "", message: "" };
+
+const labelClass =
+  "font-mono text-[11px] uppercase tracking-[0.1em] text-[#7f8a9c]";
 
 export default function ContactSection({ email }) {
   const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [form, setForm] = useState(EMPTY_FORM);
   const [errors, setErrors] = useState({});
 
   function validate() {
@@ -32,74 +34,72 @@ export default function ContactSection({ email }) {
       return;
     }
     // Ouvre le client mail avec les données pré-remplies
-    const body = encodeURIComponent(`Nom: ${form.name}\n\n${form.message}`);
     const subject = encodeURIComponent(
       form.subject || "Contact depuis le portfolio",
+    );
+    const body = encodeURIComponent(
+      `Nom: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
     );
     window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
     setSent(true);
   }
 
-  const inputClass = (field) =>
-    `w-full rounded-xl border bg-white/10 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition focus:bg-white/15 focus:ring-2 focus:ring-accent ${
-      errors[field] ? "border-red-400" : "border-white/20"
+  const fieldClass = (field) =>
+    `w-full rounded-xl border bg-white/[0.04] px-[15px] py-[13px] text-sm text-ink outline-none transition placeholder:text-[#5f6a7d] focus:border-bright focus:bg-white/[0.06] ${
+      errors[field] ? "border-[#ff8a8a]" : "border-white/[0.14]"
     }`;
 
   return (
-    <section id="contact" className="mb-12">
-      <div className="relative overflow-hidden rounded-[1.75rem] border border-ink/10 bg-ink p-6 text-white shadow-premium md:p-9">
-        <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-accent to-lagoon" />
-        {/* Header */}
-        <div className="mb-8 grid gap-4 md:grid-cols-[1fr_auto] md:items-start">
+    <section id="contact" className="scroll-mt-20 py-[88px]">
+      <div className="relative overflow-hidden rounded-[24px] border border-white/[0.18] bg-gradient-to-br from-[#0f1a22] to-[#0b0f17] p-[clamp(26px,4vw,48px)]">
+        <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/55 to-white/40" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-20 -top-[120px] h-[340px] w-[340px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.07),transparent_70%)]"
+        />
+
+        <Reveal className="relative mb-8 flex flex-wrap items-start justify-between gap-[18px]">
+          <GhostNumber value="05" size="sm" className="top-[-36px]" />
           <div>
-            <div className="flex items-center gap-3">
-              <span className="h-px w-8 bg-accent" />
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-white/55">
-                Contact
-              </p>
-            </div>
-            <h2 className="mt-3 font-display text-3xl md:text-5xl">
-              Discutons de votre besoin.
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-bright">
+              05 / Contact
+            </p>
+            <h2 className="mt-3.5 font-display text-[clamp(30px,4.4vw,50px)] font-semibold leading-[1.05] tracking-[-0.02em]">
+              Discutons de votre besoin
             </h2>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/70">
-              Integrations ERP, Power Platform, developpement applicatif —
-              envoyez-moi un message ou ecrivez directement.
+            <p className="mt-4 max-w-[52ch] text-[15.5px] leading-[1.6] text-body">
+              Intégration ERP, Power Platform, développement applicatif —
+              décrivez votre projet en quelques lignes, je vous réponds
+              rapidement.
             </p>
           </div>
-          {/* Lien email direct */}
           <a
             href={`mailto:${email}`}
-            className="inline-flex items-center gap-2 self-start rounded-full border border-white/20 px-4 py-2 text-xs font-bold tracking-[0.08em] text-white/70 transition hover:border-accent hover:text-accent"
+            className="inline-flex items-center gap-2.5 rounded-full border border-white/16 px-4 py-2.5 font-mono text-[12.5px] text-[#c3ccd9] transition hover:border-white/60 hover:text-bright"
           >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <rect x="2" y="4" width="20" height="16" rx="2" />
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-            </svg>
-            {email}
+            ✉ {email}
           </a>
-        </div>
+        </Reveal>
 
         {sent ? (
-          <div className="flex flex-col items-center gap-3 rounded-2xl border border-white/15 bg-white/10 py-16 text-center">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-white text-xl">
+          <div className="relative flex flex-col items-center gap-3 rounded-[18px] border border-white/25 bg-white/5 px-6 py-14 text-center">
+            <div className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-bright text-2xl font-bold text-night">
               ✓
             </div>
-            <p className="font-display text-xl">Message prepare !</p>
-            <p className="text-sm text-white/60">
-              Votre client mail s'est ouvert avec les informations pre-remplies.
+            <p className="font-display text-[22px] font-semibold text-ink">
+              Message préparé !
+            </p>
+            <p className="text-sm text-muted">
+              Votre client mail s'est ouvert avec les informations pré-remplies.
             </p>
             <button
-              onClick={() => setSent(false)}
-              className="mt-2 text-xs font-bold uppercase tracking-[0.08em] text-accent underline-offset-2 hover:underline"
+              type="button"
+              onClick={() => {
+                setSent(false);
+                setForm(EMPTY_FORM);
+                setErrors({});
+              }}
+              className="mt-2 font-mono text-xs uppercase tracking-[0.06em] text-bright transition hover:text-white"
             >
               Nouveau message
             </button>
@@ -108,82 +108,89 @@ export default function ContactSection({ email }) {
           <form
             onSubmit={handleSubmit}
             noValidate
-            className="grid gap-4 md:grid-cols-2"
+            className="relative grid grid-cols-1 gap-4 min-[620px]:grid-cols-2"
           >
-            {/* Nom */}
-            <div className="flex flex-col gap-1">
-              <label className="text-[11px] font-bold uppercase tracking-[0.1em] text-white/50">
+            <div className="flex flex-col gap-[7px]">
+              <label htmlFor="contact-name" className={labelClass}>
                 Nom *
               </label>
               <input
+                id="contact-name"
                 name="name"
                 value={form.name}
                 onChange={handleChange}
                 placeholder="Votre nom"
-                className={inputClass("name")}
+                className={fieldClass("name")}
               />
               {errors.name && (
-                <span className="text-[11px] text-red-400">{errors.name}</span>
+                <span className="text-[11px] text-[#ff8a8a]">{errors.name}</span>
               )}
             </div>
-            {/* Email */}
-            <div className="flex flex-col gap-1">
-              <label className="text-[11px] font-bold uppercase tracking-[0.1em] text-white/50">
+
+            <div className="flex flex-col gap-[7px]">
+              <label htmlFor="contact-email" className={labelClass}>
                 Email *
               </label>
               <input
+                id="contact-email"
                 name="email"
                 type="email"
                 value={form.email}
                 onChange={handleChange}
                 placeholder="votre@email.com"
-                className={inputClass("email")}
+                className={fieldClass("email")}
               />
               {errors.email && (
-                <span className="text-[11px] text-red-400">{errors.email}</span>
+                <span className="text-[11px] text-[#ff8a8a]">
+                  {errors.email}
+                </span>
               )}
             </div>
-            {/* Sujet */}
-            <div className="flex flex-col gap-1 md:col-span-2">
-              <label className="text-[11px] font-bold uppercase tracking-[0.1em] text-white/50">
+
+            <div className="flex flex-col gap-[7px] min-[620px]:col-span-2">
+              <label htmlFor="contact-subject" className={labelClass}>
                 Sujet
               </label>
               <input
+                id="contact-subject"
                 name="subject"
                 value={form.subject}
                 onChange={handleChange}
-                placeholder="Ex : Projet integration Sage X3"
-                className={inputClass("subject")}
+                placeholder="Ex : Projet intégration Sage X3"
+                className={fieldClass("subject")}
               />
             </div>
-            {/* Message */}
-            <div className="flex flex-col gap-1 md:col-span-2">
-              <label className="text-[11px] font-bold uppercase tracking-[0.1em] text-white/50">
+
+            <div className="flex flex-col gap-[7px] min-[620px]:col-span-2">
+              <label htmlFor="contact-message" className={labelClass}>
                 Message *
               </label>
               <textarea
+                id="contact-message"
                 name="message"
                 rows={5}
                 value={form.message}
                 onChange={handleChange}
-                placeholder="Decrivez votre besoin..."
-                className={`${inputClass("message")} resize-none`}
+                placeholder="Décrivez votre besoin…"
+                className={`${fieldClass("message")} resize-none`}
               />
               {errors.message && (
-                <span className="text-[11px] text-red-400">
+                <span className="text-[11px] text-[#ff8a8a]">
                   {errors.message}
                 </span>
               )}
             </div>
-            {/* Submit */}
-            <div className="flex items-center gap-4 md:col-span-2">
+
+            <div className="flex items-center gap-4 min-[620px]:col-span-2">
               <button
                 type="submit"
-                className="rounded-full bg-accent px-6 py-3 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:-translate-y-0.5 hover:bg-accent/90"
+                className="inline-flex items-center gap-2.5 rounded-xl bg-bright px-[26px] py-3.5 font-display text-[15px] font-semibold text-night transition hover:-translate-y-0.5 hover:shadow-glow"
               >
-                Envoyer le message
+                Envoyer le message →
               </button>
-              <p className="text-[11px] text-white/40">* champs obligatoires</p>
+              <span className="text-[11px] text-[#5f6a7d]">
+                * champs obligatoires
+              </span>
             </div>
           </form>
         )}

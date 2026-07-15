@@ -1,67 +1,67 @@
+import GhostNumber from "../common/GhostNumber";
+import Reveal from "../common/Reveal";
+
+const VARIANTS = ["left", "up", "right"];
+
 export default function ProjectsSection({ projects }) {
   return (
-    <section id="projets" className="mb-16">
-      <div className="mb-8 grid gap-3 md:grid-cols-[1fr_auto] md:items-end">
+    <section id="projets" className="scroll-mt-20 py-[88px]">
+      <Reveal className="relative mb-[38px] flex flex-wrap items-end justify-between gap-5">
+        <GhostNumber value="01" className="top-[-52px]" />
         <div>
-          <div className="flex items-center gap-3">
-            <span className="h-px w-8 bg-accent" />
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-lagoon">
-              Realisations
-            </p>
-          </div>
-          <h2 className="mt-3 font-display text-3xl text-ink md:text-5xl">
-            Projets strategiques
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-bright">
+            01 / Réalisations
+          </p>
+          <h2 className="mt-3.5 font-display text-[clamp(30px,4.4vw,50px)] font-semibold leading-[1.05] tracking-[-0.02em]">
+            Projets livrés en production
           </h2>
         </div>
-        <p className="max-w-sm text-sm leading-relaxed text-muted">
-          Chaque projet est oriente fiabilite metier, reduction des taches
-          manuelles et interconnexion des outils.
+        <p className="max-w-[38ch] text-[15px] leading-[1.6] text-muted">
+          Chaque projet vise un objectif concret : fiabiliser la donnée métier,
+          supprimer les tâches manuelles et faire dialoguer des systèmes qui ne
+          se parlaient pas.
         </p>
-      </div>
+      </Reveal>
 
-      <div className="grid gap-5 md:grid-cols-3">
-        {projects.map((project, index) => (
-          <article
+      <div className="grid grid-cols-1 gap-[18px] min-[620px]:grid-cols-2 min-[940px]:grid-cols-3">
+        {projects.map((project, i) => (
+          <Reveal
             key={project.title}
-            className="group relative flex min-h-[320px] flex-col justify-between overflow-hidden rounded-2xl border border-ink/10 bg-white p-5 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-ink/20"
+            variant={VARIANTS[i % 3]}
+            delay={(i % 3) * 90}
           >
-            <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-ink via-accent to-lagoon" />
-
-            <div>
-              <div className="mb-4 flex items-center justify-between gap-2">
-                <p className="font-display text-sm text-ink/50">
-                  {String(index + 1).padStart(2, "0")}
+            <article className="group flex h-full min-h-[300px] flex-col justify-between overflow-hidden rounded-[18px] border border-white/[0.08] bg-gradient-to-b from-[#12171f] to-[#0d1119] p-6 transition duration-300 hover:-translate-y-[5px] hover:border-white/40 hover:shadow-card">
+              <div>
+                <div className="mb-[18px] flex items-center justify-between gap-2.5">
+                  <span className="font-mono text-[13px] text-dim">
+                    {project.num}
+                  </span>
+                  <span className="rounded-full border border-white/[0.12] px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-[#7f8a9c]">
+                    {project.visibility}
+                  </span>
+                </div>
+                <p className="font-mono text-[11.5px] uppercase tracking-[0.06em] text-bright">
+                  {project.tag}
                 </p>
-                <span className="rounded-md border border-ink/12 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.08em] text-ink/60">
-                  {project.visibility}
-                </span>
+                <h3 className="mt-[11px] font-display text-xl font-semibold leading-[1.28] text-ink">
+                  {project.title}
+                </h3>
+                <p className="mt-[13px] text-sm leading-[1.62] text-[#98a2b2]">
+                  {project.description}
+                </p>
               </div>
-              <p className="text-xs font-bold uppercase tracking-[0.1em] text-lagoon">
-                {project.tag}
-              </p>
-              <h3 className="mt-2 font-display text-2xl leading-snug text-ink">
-                {project.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                {project.description}
-              </p>
-            </div>
 
-            <div className="mt-6 flex items-center justify-end gap-3 border-t border-ink/8 pt-4">
-              {project.caseStudyUrl ? (
-                <a
-                  href={project.caseStudyUrl}
-                  className="rounded-md border border-ink/20 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-ink transition hover:border-ink"
-                >
-                  Voir etude
-                </a>
-              ) : (
-                <span className="rounded-md bg-ink px-3 py-1.5 text-xs font-bold uppercase tracking-[0.08em] text-white">
+              <div className="mt-[22px] flex items-center justify-between border-t border-white/[0.07] pt-4">
+                <span className="inline-flex items-center gap-[7px] font-mono text-[11px] uppercase tracking-[0.06em] text-[#7f8a9c]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-bright" />
                   Sous NDA
                 </span>
-              )}
-            </div>
-          </article>
+                <span className="font-display text-[19px] leading-none text-dim transition-[transform,color] duration-300 group-hover:translate-x-1.5 group-hover:text-white">
+                  →
+                </span>
+              </div>
+            </article>
+          </Reveal>
         ))}
       </div>
     </section>
