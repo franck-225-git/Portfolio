@@ -16,8 +16,8 @@ export default function SkillsSection({ skillGroups }) {
             </h2>
           </div>
           <p className="max-w-[36ch] text-[15px] leading-[1.6] text-muted">
-            Un socle technique éprouvé en contexte ERP, API et automatisation
-            métier.
+            Un socle éprouvé en intégration d'API, ERP, support applicatif et
+            automatisation métier.
           </p>
         </Reveal>
 

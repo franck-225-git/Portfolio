@@ -68,8 +68,8 @@ export default function ContactSection({ email }) {
               Discutons de votre besoin
             </h2>
             <p className="mt-4 max-w-[52ch] text-[15.5px] leading-[1.6] text-body">
-              Intégration ERP, Power Platform, développement applicatif —
-              décrivez votre projet en quelques lignes, je vous réponds
+              Intégration d'API, Sage X3, Power Platform ou support applicatif
+              — décrivez votre projet en quelques lignes, je vous réponds
               rapidement.
             </p>
           </div>

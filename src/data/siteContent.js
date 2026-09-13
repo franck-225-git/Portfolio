@@ -1,25 +1,25 @@
 export const profile = {
-  name: "KONÉ SIÉ MINANYAHA SÉKOU",
-  brandName: "Koné Sié Sékou",
+  name: "KONE SIE MINANYAHA SEKOU",
+  brandName: "KONE SIE MINANYAHA SEKOU",
   initial: "K",
-  role: "Développeur Full Stack · Power Platform · Intégrateur Sage X3",
-  location: "Côte d'Ivoire",
+  role: "Développeur / Intégrateur d'applications · API, flux d'échanges & support applicatif",
+  location: "Abidjan, Côte d'Ivoire",
   availability: "Ouvert aux missions & opportunités",
   yearLabel: "Portfolio 2026",
   heroTitleLines: ["Vos systèmes connectés.", "Vos données fiabilisées."],
   heroDescription:
-    "3 ans sur le terrain, plus de 10 projets livrés en production. Je conçois des intégrations ERP robustes, des applications Power Platform sur mesure et des API métier taillées pour les opérations réelles de l'entreprise.",
+    "Je conçois et j'exploite les flux qui relient les systèmes d'information : API REST et web services SOAP sécurisés, services d'échange automatisés, intégrations Sage X3. De l'analyse au déploiement, puis en maintien en condition opérationnelle, sur des flux critiques multi-entités.",
   highlights: [
-    "Intégration ERP",
+    "API REST & SOAP",
+    "Intégration Sage X3",
+    "Services Windows .NET",
     "Power Platform",
-    "API métier",
-    "Sage X3",
-    "Automatisation",
-    "Full Stack",
+    "Support N1/N2",
+    "IA générative",
   ],
   aboutTitle: "Un développeur qui parle métier autant que code.",
   aboutDescription:
-    "De la maintenance industrielle à la facturation électronique réglementaire, en passant par la paie et la gestion clinique, j'interviens sur des enjeux concrets, avec les vraies contraintes de la production. Ma méthode tient en trois temps : cerner précisément le besoin fonctionnel, livrer un outil fiable, et garantir sa pérennité dans le temps.",
+    "D'ORION, qui relie Sage 100 et Sage X3 pour 21 filiales africaines de NSIA Assurances, au support applicatif N1/N2 sous ServiceNow, j'interviens sur toute la chaîne : analyse du besoin, développement, déploiement, puis maintien en condition opérationnelle. Je traite les incidents de la qualification à la clôture dans le respect des SLA, et je remonte les causes racines pour fiabiliser durablement le SI.",
   contactEmail: "konesekou15137@gmail.com",
   profileImage: "/profile.jpg",
 };
@@ -33,135 +33,164 @@ export const navLinks = [
 ];
 
 export const stats = [
-  { value: "3", label: "ans d'expérience terrain" },
+  { value: "2", label: "ans d'expérience en développement et support" },
   { value: "10+", label: "projets livrés en production" },
-  { value: "3", label: "domaines d'expertise" },
+  { value: "21", label: "filiales africaines connectées par ORION" },
 ];
 
 export const projects = [
   {
-    tag: "Power Platform",
-    title: "GMAO — Maintenance Assistée par Ordinateur",
+    tag: "Intégration inter-SI",
+    title: "ORION — Plateforme d'intégration Sage 100 ↔ Sage X3",
     description:
-      "Application Power Apps pour CARENA couvrant tout le cycle de maintenance : planification et suivi des interventions, gestion du parc d'équipements et historisation des pannes. Power Automate orchestre les alertes automatiques et des tableaux de bord Power BI donnent une vision décisionnelle en temps réel.",
+      "Pour NSIA Assurances et ses 21 filiales africaines : chaîne d'échange automatisée pour l'import des écritures de paie. API REST ASP.NET Core sécurisée par JWT, transmission par web services SOAP, service Windows .NET 9 de surveillance de répertoires, relance des imports en échec, frontend React/TypeScript, déploiement IIS.",
+    visibility: "Privé",
+  },
+  {
+    tag: "API & ERP",
+    title: "Passerelle aéroportuaire ↔ Sage X3",
+    description:
+      "API REST .NET 9 entre les systèmes d'assistance aéroportuaire et l'ERP : transformation JSON vers le format X3, transmission SOAP (modèle YSDH), authentification JWT avec rôles et révocation, EF Core / SQL Server, service Windows auto-hébergé et documentation Swagger.",
+    visibility: "Privé",
+  },
+  {
+    tag: "Paie & comptabilité",
+    title: "WEBPNM v2 — Automatisation des écritures comptables",
+    description:
+      "Conversion des fichiers de paie en imports comptables Sage X3 en un clic, en remplacement d'une saisie manuelle source d'erreurs : multi-sociétés, accès par rôles et service Windows autonome. Blazor Server, .NET 8, SQL Server.",
+    visibility: "Privé",
+  },
+  {
+    tag: "Intégration ERP",
+    title: "Intégration Sage X3 ↔ Odoo — SANGEL",
+    description:
+      "API REST en C# pour les échanges entre Sage X3 et Odoo, avec refonte du format d'export CSV et enrichissement du modèle de données.",
+    visibility: "Privé",
+  },
+  {
+    tag: "Automatisation financière",
+    title: "Paie & rapprochement bancaire — NSIA",
+    description:
+      "API Node.js de conversion des fichiers de paie, API C# d'envoi automatique des opérations diverses (OD) et macro d'import des suspens bancaires. Étude et démonstration de SuiteCRM sur un Ubuntu virtualisé.",
+    visibility: "Privé",
+  },
+  {
+    tag: "Power Platform & Sage X3",
+    title: "Application de maintenance — CARENA",
+    description:
+      "Refonte et mise en production d'une application Power Apps : trois flux Power Automate et procédures stockées SQL intégrées à Sage X3, puis formation des utilisateurs.",
+    visibility: "Privé",
+  },
+  {
+    tag: "Power Platform & SharePoint",
+    title: "Applications métiers — GMAO & tableaux de bord",
+    description:
+      "Applications métiers pour CARENA sur Power Platform et SharePoint : GMAO, suivi des consultations avec statistiques automatiques, alertes e-mail programmées et tableaux de bord dynamiques.",
     visibility: "Privé",
   },
   {
     tag: "Power Platform",
-    title: "Gestion de clinique & stock médicaments",
+    title: "Gestion d'infirmerie & stock de médicaments",
     description:
-      "Solution Power Apps pour CARENA couvrant le parcours patient de la consultation à la fiche de suivi, ainsi que la gestion des repos médicaux. Power Automate alerte les responsables sur les cas à suivre, et un module de stock avec alertes de rupture sécurise l'approvisionnement.",
-    visibility: "Privé",
-  },
-  {
-    tag: "Power Platform",
-    title: "FLUXIA — Automatisation de la facturation sous-traitants",
-    description:
-      "Solution end-to-end pour CARENA : calcul, contrôle et export comptable des heures de sous-traitance. App Power Apps 4 écrans (validation, KPIs temps réel, anti-doublon), 5 flows Power Automate et 3 procédures SQL Server générant un fichier d'import Sage X3.",
-    visibility: "Privé",
-  },
-  {
-    tag: "Intégration Paie",
-    title: "Service C# de synchronisation paie → Sage X3",
-    description:
-      "Service Windows en C# installable sur poste : récupération automatique des fichiers de paie, envoi vers Sage X3 avec contrôle des formats et reprise sur erreur. Interface de pilotage développée en React.",
-    visibility: "Privé",
-  },
-  {
-    tag: "Migration & Paie",
-    title: "WEBPNM — Migration Web Forms → Blazor Server",
-    description:
-      "Réécriture complète d'une application de paie en Blazor Server (.NET 8) : parsing d'un export fixed-width, génération d'imports Sage PNM, gestion des utilisateurs via ASP.NET Core Identity, architecture en couches EF Core / SQL Server.",
-    visibility: "Privé",
-  },
-  {
-    tag: "Intégration Sage",
-    title: "SageInterfaceService — Service .NET 9 d'interfaçage",
-    description:
-      "Automatisation des échanges de fichiers avec Sage : réception, transformation (conversion en .txt) et mise à disposition via des endpoints API, avec une architecture modulaire séparant parsing, conversion et persistance.",
-    visibility: "Privé",
-  },
-  {
-    tag: "Intégration Bancaire",
-    title: "Macro d'import de suspens bancaires — NSIA",
-    description:
-      "Macro d'automatisation pour l'import et le traitement des suspens bancaires, réduisant les opérations manuelles et fiabilisant le rapprochement des données.",
-    visibility: "Privé",
-  },
-  {
-    tag: "Développement Web",
-    title: "NSIA Frontend — Administration & import de données",
-    description:
-      "Application interne NSIA (React 19 / TypeScript) : authentification et gestion des utilisateurs, import Excel multi-feuilles avec suivi temps réel, gestion multi-sites/filiales (X3), historique détaillé des imports et notifications email.",
-    visibility: "Privé",
-  },
-  {
-    tag: "API Inter-SI",
-    title: "API de facturation électronique — DGI",
-    description:
-      "Conception et déploiement d'une API d'interopérabilité pour l'émission de factures numériques entre Sage 100, Sage X3 et la Direction Générale des Impôts (DGI), en conformité avec les exigences réglementaires.",
+      "Application pour CARENA couvrant les consultations, la gestion des repos maladie et le stock de médicaments avec alertes de rupture, ainsi que les modules associés.",
     visibility: "Privé",
   },
 ].map((project, i) => ({ ...project, num: String(i + 1).padStart(2, "0") }));
 
 export const services = [
   {
-    title: "Intégrations ERP & flux métier",
+    title: "Intégration d'API & flux d'échanges",
     description:
-      "Des services et API qui relient vos outils ERP, comptables et applicatifs — de bout en bout, sans rupture ni perte de données.",
+      "API REST et web services SOAP sécurisés, services Windows d'échange et relance automatique des flux en échec — de bout en bout, sans perte de données.",
+    points: ["REST / SOAP", "JWT", "Services Windows"],
+  },
+  {
+    title: "Intégration ERP Sage",
+    description:
+      "Chaînes d'import et passerelles entre vos applications métier et l'ERP : transformation JSON/XML, écritures comptables et de paie.",
     points: ["Sage X3", "Sage 100", "Odoo"],
   },
   {
-    title: "Solutions Power Platform",
+    title: "Automatisation Power Platform",
     description:
-      "Applications métier sur mesure (Power Apps), automatisation des processus (Power Automate) et pilotage décisionnel (Power BI).",
+      "Applications métier sur mesure, flux automatisés et tableaux de bord pour supprimer les saisies manuelles.",
     points: ["Power Apps", "Power Automate", "Power BI"],
   },
   {
-    title: "Développement web & applicatif",
+    title: "Support applicatif & MCO",
     description:
-      "Interfaces et outils pensés pour vos besoins opérationnels réels — maintenables, évolutifs et conçus pour durer.",
-    points: ["React", "C#", "SQL", "JS"],
-  },
-  {
-    title: "Intégrateur Sage X3",
-    description:
-      "Paramétrage, intégration et développements spécifiques sur l'ERP Sage X3 : imports, interfaces et connecteurs métier sur mesure.",
-    points: ["Sage X3", "Imports", "Connecteurs API"],
+      "Support N1/N2 de la qualification à la clôture, suivi des SLA, analyse des causes racines et maintien en condition opérationnelle des flux.",
+    points: ["ServiceNow", "GLPI", "ITIL"],
   },
 ].map((service, i) => ({ ...service, num: `0${i + 1}` }));
 
 export const skillGroups = [
   {
-    category: "Web & Logiciel",
-    items: ["React", "HTML", "CSS", "JavaScript", "C#", "C"],
+    category: "Intégration & API",
+    items: ["API REST", "SOAP", "JSON / XML", "JWT", "Swagger / OpenAPI", "Postman"],
   },
   {
-    category: "Base de données & API",
-    items: ["SQL", "API REST"],
+    category: "Développement",
+    items: [
+      "C# / .NET 8-9",
+      "ASP.NET Core",
+      "Blazor Server",
+      "EF Core",
+      "Node.js",
+      "NestJS",
+      "React",
+      "TypeScript",
+      "Python",
+      "PHP",
+      "Java (en cours)",
+    ],
   },
   {
-    category: "Power Platform",
-    items: ["Power Apps", "Power Automate", "Power BI"],
+    category: "Bases de données",
+    items: ["SQL Server", "T-SQL", "PostgreSQL", "MySQL", "MongoDB", "SQLite", "Dataverse"],
   },
   {
-    category: "ERP & Intégration",
-    items: ["Sage X3", "Sage 100", "Odoo"],
+    category: "ERP & métier",
+    items: ["Sage X3", "Sage 100", "Sage Paie", "Sage BI", "Odoo", "SharePoint", "Microsoft 365"],
   },
   {
-    category: "Système & Support",
-    items: ["Services Windows", "Macros", "Maintenance"],
+    category: "Support & exploitation",
+    items: [
+      "ServiceNow",
+      "GLPI",
+      "Support N1/N2",
+      "Suivi des SLA",
+      "IIS",
+      "PowerShell",
+      "Docker",
+      "Ubuntu",
+      "VMware",
+      "Git / GitHub",
+    ],
+  },
+  {
+    category: "Automatisation & IA",
+    items: [
+      "Power Automate",
+      "Power Apps",
+      "Power BI",
+      "API LLM",
+      "RAG",
+      "Classification de texte",
+      "Détection d'anomalies",
+    ],
   },
 ];
 
 export const values = [
-  "Approche orientée résultats métier",
-  "Qualité de code et maintenabilité",
-  "Capacité à relier technique et opérations",
+  "Orientation résultats et qualité de service",
+  "Rigueur, organisation et souci du détail",
+  "Analyse et résolution de problèmes",
+  "Collaboration avec les équipes métier et techniques",
 ];
 
 export const socialLinks = [
   { href: "#", label: "LinkedIn" },
-  { href: "#", label: "GitHub" },
+  { href: "https://github.com/franck-225-git", label: "GitHub" },
   { href: "#", label: "Behance" },
 ];
