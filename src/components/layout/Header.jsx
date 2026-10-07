@@ -57,7 +57,7 @@ export default function Header({ navLinks, brandName, initial }) {
           <span className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[10px] border border-white/35 bg-gradient-to-br from-white/[0.18] to-white/[0.14] font-display text-[15px] font-bold text-bright">
             {initial}
           </span>
-          <span className="font-display text-sm font-semibold tracking-[0.02em]">
+          <span className="hidden font-display text-sm font-semibold tracking-[0.02em] min-[560px]:block">
             {brandName}
           </span>
         </a>
@@ -76,7 +76,7 @@ export default function Header({ navLinks, brandName, initial }) {
         <div className="flex items-center gap-2.5">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 rounded-[10px] bg-bright px-4 py-[9px] font-display text-[13px] font-semibold text-night transition hover:-translate-y-px hover:shadow-glowSm"
+            className="inline-flex items-center gap-2 whitespace-nowrap rounded-[10px] bg-bright px-4 py-[9px] font-display text-[13px] font-semibold text-night transition hover:bg-white"
           >
             Me contacter
           </a>

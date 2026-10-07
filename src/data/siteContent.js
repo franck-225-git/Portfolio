@@ -2,21 +2,12 @@ export const profile = {
   name: "KONE SIE MINANYAHA SEKOU",
   brandName: "KONE SIE MINANYAHA SEKOU",
   initial: "K",
-  role: "Développeur / Intégrateur d'applications · API, flux d'échanges & support applicatif",
+  role: "Développeur et intégrateur d'applications",
   location: "Abidjan, Côte d'Ivoire",
   availability: "Ouvert aux missions & opportunités",
-  yearLabel: "Portfolio 2026",
   heroTitleLines: ["Vos systèmes connectés.", "Vos données fiabilisées."],
   heroDescription:
     "Je conçois et j'exploite les flux qui relient les systèmes d'information : API REST et web services SOAP sécurisés, services d'échange automatisés, intégrations Sage X3. De l'analyse au déploiement, puis en maintien en condition opérationnelle, sur des flux critiques multi-entités.",
-  highlights: [
-    "API REST & SOAP",
-    "Intégration Sage X3",
-    "Services Windows .NET",
-    "Power Platform",
-    "Support N1/N2",
-    "IA générative",
-  ],
   aboutTitle: "Un développeur qui parle métier autant que code.",
   aboutDescription:
     "D'ORION, qui relie Sage 100 et Sage X3 pour 21 filiales africaines de NSIA Assurances, au support applicatif N1/N2 sous ServiceNow, j'interviens sur toute la chaîne : analyse du besoin, développement, déploiement, puis maintien en condition opérationnelle. Je traite les incidents de la qualification à la clôture dans le respect des SLA, et je remonte les causes racines pour fiabiliser durablement le SI.",
@@ -33,75 +24,90 @@ export const navLinks = [
 ];
 
 export const stats = [
-  { value: "2", label: "ans d'expérience en développement et support" },
+  { value: "2+", label: "ans d'expérience en développement et support" },
   { value: "10+", label: "projets livrés en production" },
   { value: "21", label: "filiales africaines connectées par ORION" },
 ];
 
-export const projects = [
+// Intégrations : chaque entrée relie un système source à un système cible.
+export const integrations = [
   {
-    tag: "Intégration inter-SI",
-    title: "ORION — Plateforme d'intégration Sage 100 ↔ Sage X3",
+    name: "ORION",
+    client: "NSIA Assurances — 21 filiales africaines",
+    from: "Sage 100",
+    to: "Sage X3",
     description:
-      "Pour NSIA Assurances et ses 21 filiales africaines : chaîne d'échange automatisée pour l'import des écritures de paie. API REST ASP.NET Core sécurisée par JWT, transmission par web services SOAP, service Windows .NET 9 de surveillance de répertoires, relance des imports en échec, frontend React/TypeScript, déploiement IIS.",
-    visibility: "Privé",
+      "Import automatisé des écritures de paie : API REST sécurisée par JWT, transmission SOAP, service Windows de surveillance de répertoires et relance des imports en échec.",
+    stack: ["ASP.NET Core", ".NET 9", "SOAP", "JWT", "React", "IIS"],
   },
   {
-    tag: "API & ERP",
-    title: "Passerelle aéroportuaire ↔ Sage X3",
+    name: "Passerelle aéroportuaire",
+    client: "Assistance aéroportuaire",
+    from: "Systèmes d'assistance",
+    to: "Sage X3",
     description:
-      "API REST .NET 9 entre les systèmes d'assistance aéroportuaire et l'ERP : transformation JSON vers le format X3, transmission SOAP (modèle YSDH), authentification JWT avec rôles et révocation, EF Core / SQL Server, service Windows auto-hébergé et documentation Swagger.",
-    visibility: "Privé",
+      "Transformation des messages JSON vers le format X3, transmission SOAP sur le modèle YSDH, authentification par rôles avec révocation et service Windows auto-hébergé.",
+    stack: [".NET 9", "EF Core", "SQL Server", "Swagger"],
   },
   {
-    tag: "Paie & comptabilité",
-    title: "WEBPNM v2 — Automatisation des écritures comptables",
+    name: "WEBPNM v2",
+    client: "OSIRIS",
+    from: "Fichiers de paie",
+    to: "Sage X3",
     description:
-      "Conversion des fichiers de paie en imports comptables Sage X3 en un clic, en remplacement d'une saisie manuelle source d'erreurs : multi-sociétés, accès par rôles et service Windows autonome. Blazor Server, .NET 8, SQL Server.",
-    visibility: "Privé",
+      "Conversion des fichiers de paie en écritures comptables en un clic, à la place d'une saisie manuelle source d'erreurs : multi-sociétés et accès par rôles.",
+    stack: ["Blazor Server", ".NET 8", "SQL Server"],
   },
   {
-    tag: "Intégration ERP",
-    title: "Intégration Sage X3 ↔ Odoo — SANGEL",
+    name: "SANGEL",
+    client: "SANGEL",
+    from: "Sage X3",
+    to: "Odoo",
     description:
-      "API REST en C# pour les échanges entre Sage X3 et Odoo, avec refonte du format d'export CSV et enrichissement du modèle de données.",
-    visibility: "Privé",
+      "Échanges entre l'ERP et Odoo, avec refonte du format d'export CSV et enrichissement du modèle de données.",
+    stack: ["C#", "API REST", "CSV"],
   },
   {
-    tag: "Automatisation financière",
-    title: "Paie & rapprochement bancaire — NSIA",
+    name: "Paie & rapprochement bancaire",
+    client: "NSIA",
+    from: "Paie & relevés bancaires",
+    to: "Sage X3",
     description:
-      "API Node.js de conversion des fichiers de paie, API C# d'envoi automatique des opérations diverses (OD) et macro d'import des suspens bancaires. Étude et démonstration de SuiteCRM sur un Ubuntu virtualisé.",
-    visibility: "Privé",
+      "Conversion des fichiers de paie, envoi automatique des opérations diverses et import des suspens bancaires pour fiabiliser le rapprochement.",
+    stack: ["Node.js", "C#", "Macro", "SuiteCRM"],
+  },
+];
+
+// Applications métier : des outils utilisés au quotidien, pas des flux.
+export const applications = [
+  {
+    name: "Application de maintenance",
+    client: "CARENA",
+    description:
+      "Refonte et mise en production : trois flux automatisés, procédures stockées intégrées à Sage X3 et formation des utilisateurs.",
+    stack: ["Power Apps", "Power Automate", "SQL Server", "Sage X3"],
   },
   {
-    tag: "Power Platform & Sage X3",
-    title: "Application de maintenance — CARENA",
+    name: "GMAO & tableaux de bord",
+    client: "CARENA",
     description:
-      "Refonte et mise en production d'une application Power Apps : trois flux Power Automate et procédures stockées SQL intégrées à Sage X3, puis formation des utilisateurs.",
-    visibility: "Privé",
+      "GMAO, suivi des consultations avec statistiques automatiques, alertes e-mail programmées et tableaux de bord.",
+    stack: ["Power Apps", "SharePoint", "Power BI"],
   },
   {
-    tag: "Power Platform & SharePoint",
-    title: "Applications métiers — GMAO & tableaux de bord",
+    name: "Gestion d'infirmerie",
+    client: "CARENA",
     description:
-      "Applications métiers pour CARENA sur Power Platform et SharePoint : GMAO, suivi des consultations avec statistiques automatiques, alertes e-mail programmées et tableaux de bord dynamiques.",
-    visibility: "Privé",
+      "Consultations, gestion des repos maladie et stock de médicaments avec alertes de rupture.",
+    stack: ["Power Apps", "Power Automate"],
   },
-  {
-    tag: "Power Platform",
-    title: "Gestion d'infirmerie & stock de médicaments",
-    description:
-      "Application pour CARENA couvrant les consultations, la gestion des repos maladie et le stock de médicaments avec alertes de rupture, ainsi que les modules associés.",
-    visibility: "Privé",
-  },
-].map((project, i) => ({ ...project, num: String(i + 1).padStart(2, "0") }));
+];
 
 export const services = [
   {
     title: "Intégration d'API & flux d'échanges",
     description:
-      "API REST et web services SOAP sécurisés, services Windows d'échange et relance automatique des flux en échec — de bout en bout, sans perte de données.",
+      "API REST et web services SOAP sécurisés, services Windows d'échange et relance automatique des flux en échec.",
     points: ["REST / SOAP", "JWT", "Services Windows"],
   },
   {
@@ -119,10 +125,10 @@ export const services = [
   {
     title: "Support applicatif & MCO",
     description:
-      "Support N1/N2 de la qualification à la clôture, suivi des SLA, analyse des causes racines et maintien en condition opérationnelle des flux.",
+      "Support N1/N2 de la qualification à la clôture, suivi des SLA, analyse des causes racines et maintien en condition opérationnelle.",
     points: ["ServiceNow", "GLPI", "ITIL"],
   },
-].map((service, i) => ({ ...service, num: `0${i + 1}` }));
+];
 
 export const skillGroups = [
   {

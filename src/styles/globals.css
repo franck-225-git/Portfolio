@@ -20,6 +20,36 @@ body {
   color: #eafff9;
 }
 
+/* Focus clavier visible sur toute la page. */
+:focus-visible {
+  outline: 2px solid #d9a441;
+  outline-offset: 3px;
+}
+
+/* Séquence d'entrée, jouée une seule fois au chargement du hero.
+   Le contenu est visible par défaut : si l'animation ne tourne pas,
+   rien ne peut rester invisible. */
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.enter {
+  animation: riseIn 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter {
+    animation: none;
+  }
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

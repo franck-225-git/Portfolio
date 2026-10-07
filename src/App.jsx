@@ -9,9 +9,10 @@ import ProjectsSection from "./components/sections/ProjectsSection";
 import ServicesSection from "./components/sections/ServicesSection";
 import SkillsSection from "./components/sections/SkillsSection";
 import {
+  applications,
+  integrations,
   navLinks,
   profile,
-  projects,
   services,
   skillGroups,
   socialLinks,
@@ -34,7 +35,10 @@ export default function App() {
 
       <main id="top" className="relative z-10 mx-auto w-[min(1180px,92vw)]">
         <HeroSection profile={profile} stats={stats} />
-        <ProjectsSection projects={projects} />
+        <ProjectsSection
+          integrations={integrations}
+          applications={applications}
+        />
         <SkillsSection skillGroups={skillGroups} />
         <ServicesSection services={services} />
         <AboutSection profile={profile} values={values} />

@@ -17,26 +17,11 @@ export default {
         bright: "#e8ebf1",
         body: "#a8b1c1",
         muted: "#8b95a7",
-        faint: "#6f7a8d",
         dim: "#4f5b6e",
+        // Accent unique, réservé au sens : sens d'un flux, service en production.
+        signal: "#d9a441",
       },
-      boxShadow: {
-        card: "0 22px 44px -26px rgba(0, 0, 0, 0.6)",
-        glow: "0 12px 30px -12px rgba(255, 255, 255, 0.3)",
-        glowSm: "0 8px 22px -10px rgba(255, 255, 255, 0.28)",
-      },
-      transitionTimingFunction: {
-        reveal: "cubic-bezier(0.22, 0.61, 0.36, 1)",
-      },
-      keyframes: {
-        marqueeX: {
-          from: { transform: "translateX(0)" },
-          to: { transform: "translateX(-50%)" },
-        },
-      },
-      animation: {
-        marquee: "marqueeX 38s linear infinite",
-      },
+
     },
   },
   plugins: [],

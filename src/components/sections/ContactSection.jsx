@@ -1,11 +1,9 @@
 import { useState } from "react";
-import GhostNumber from "../common/GhostNumber";
-import Reveal from "../common/Reveal";
 
 const EMPTY_FORM = { name: "", email: "", subject: "", message: "" };
 
 const labelClass =
-  "font-mono text-[11px] uppercase tracking-[0.1em] text-[#7f8a9c]";
+  "font-mono text-[11px] uppercase tracking-[0.1em] text-muted";
 
 export default function ContactSection({ email }) {
   const [sent, setSent] = useState(false);
@@ -45,7 +43,7 @@ export default function ContactSection({ email }) {
   }
 
   const fieldClass = (field) =>
-    `w-full rounded-xl border bg-white/[0.04] px-[15px] py-[13px] text-sm text-ink outline-none transition placeholder:text-[#5f6a7d] focus:border-bright focus:bg-white/[0.06] ${
+    `w-full rounded-xl border bg-white/[0.04] px-[15px] py-[13px] text-sm text-ink outline-none transition placeholder:text-muted focus:border-bright focus:bg-white/[0.06] ${
       errors[field] ? "border-[#ff8a8a]" : "border-white/[0.14]"
     }`;
 
@@ -58,13 +56,9 @@ export default function ContactSection({ email }) {
           className="pointer-events-none absolute -right-20 -top-[120px] h-[340px] w-[340px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.07),transparent_70%)]"
         />
 
-        <Reveal className="relative mb-8 flex flex-wrap items-start justify-between gap-[18px]">
-          <GhostNumber value="05" size="sm" className="top-[-36px]" />
+        <div className="relative mb-8 flex flex-wrap items-start justify-between gap-[18px]">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-bright">
-              05 / Contact
-            </p>
-            <h2 className="mt-3.5 font-display text-[clamp(30px,4.4vw,50px)] font-semibold leading-[1.05] tracking-[-0.02em]">
+            <h2 className="font-display text-[clamp(30px,4.4vw,50px)] font-semibold leading-[1.05] tracking-[-0.02em]">
               Discutons de votre besoin
             </h2>
             <p className="mt-4 max-w-[52ch] text-[15.5px] leading-[1.6] text-body">
@@ -75,11 +69,11 @@ export default function ContactSection({ email }) {
           </div>
           <a
             href={`mailto:${email}`}
-            className="inline-flex items-center gap-2.5 rounded-full border border-white/16 px-4 py-2.5 font-mono text-[12.5px] text-[#c3ccd9] transition hover:border-white/60 hover:text-bright"
+            className="inline-flex items-center gap-2.5 rounded-full border border-white/16 px-4 py-2.5 font-mono text-[12.5px] text-body transition hover:border-white/60 hover:text-bright"
           >
-            ✉ {email}
+            {email}
           </a>
-        </Reveal>
+        </div>
 
         {sent ? (
           <div className="relative flex flex-col items-center gap-3 rounded-[18px] border border-white/25 bg-white/5 px-6 py-14 text-center">
@@ -184,11 +178,11 @@ export default function ContactSection({ email }) {
             <div className="flex items-center gap-4 min-[620px]:col-span-2">
               <button
                 type="submit"
-                className="inline-flex items-center gap-2.5 rounded-xl bg-bright px-[26px] py-3.5 font-display text-[15px] font-semibold text-night transition hover:-translate-y-0.5 hover:shadow-glow"
+                className="inline-flex items-center gap-2.5 rounded-xl bg-bright px-[26px] py-3.5 font-display text-[15px] font-semibold text-night transition hover:bg-white"
               >
-                Envoyer le message →
+                Envoyer le message
               </button>
-              <span className="text-[11px] text-[#5f6a7d]">
+              <span className="text-[11px] text-muted">
                 * champs obligatoires
               </span>
             </div>
