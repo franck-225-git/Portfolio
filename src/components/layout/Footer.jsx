@@ -6,10 +6,7 @@ export default function Footer({ year, brandName, socialLinks }) {
     <footer className="relative z-10 mt-10 border-t border-white/[0.07]">
       <div className="mx-auto flex w-[min(1180px,92vw)] flex-wrap items-center justify-between gap-6 py-[34px]">
         <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
-            Intégration d'applications, API et support applicatif
-          </p>
-          <p className="mt-3.5 font-display text-[clamp(26px,4.6vw,54px)] font-bold uppercase leading-[1.05] tracking-[-0.01em] text-ink">
+          <p className="font-display text-[clamp(26px,4.6vw,54px)] font-bold uppercase leading-[1.05] tracking-[-0.01em] text-ink">
             {brandName}
           </p>
           <p className="mt-4 text-[13px] text-muted">

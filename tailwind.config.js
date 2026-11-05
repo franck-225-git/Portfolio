@@ -17,7 +17,6 @@ export default {
         bright: "#e8ebf1",
         body: "#a8b1c1",
         muted: "#8b95a7",
-        dim: "#4f5b6e",
         // Accent unique, réservé au sens : sens d'un flux, service en production.
         signal: "#d9a441",
       },

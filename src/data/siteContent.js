@@ -68,6 +68,15 @@ export const integrations = [
     stack: ["C#", "API REST", "CSV"],
   },
   {
+    name: "Barron",
+    client: "CARENA",
+    from: "Demandes d'atelier",
+    to: "Sage X3",
+    description:
+      "Les bons d'approvisionnement saisis par les ateliers deviennent une sortie diverse dans l'ERP : application Power Apps, flux Power Automate, procédures SQL et génération du fichier d'import, avec archivage des bons et contrôle des doublons.",
+    stack: ["Power Apps", "Power Automate", "SQL Server", "SharePoint"],
+  },
+  {
     name: "Paie & rapprochement bancaire",
     client: "NSIA",
     from: "Paie & relevés bancaires",
@@ -93,6 +102,13 @@ export const applications = [
     description:
       "GMAO, suivi des consultations avec statistiques automatiques, alertes e-mail programmées et tableaux de bord.",
     stack: ["Power Apps", "SharePoint", "Power BI"],
+  },
+  {
+    name: "Console d'import",
+    client: "NSIA Assurances",
+    description:
+      "Interface interne pour piloter les imports : chargement de fichiers Excel, table de correspondance des champs, historique des imports, authentification et gestion des utilisateurs. Architecture en couches (services, hooks, DTO).",
+    stack: ["React", "TypeScript", "Vite", "Axios"],
   },
   {
     name: "Gestion d'infirmerie",

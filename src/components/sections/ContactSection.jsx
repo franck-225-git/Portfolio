@@ -2,8 +2,7 @@ import { useState } from "react";
 
 const EMPTY_FORM = { name: "", email: "", subject: "", message: "" };
 
-const labelClass =
-  "font-mono text-[11px] uppercase tracking-[0.1em] text-muted";
+const labelClass = "text-[13px] text-muted";
 
 export default function ContactSection({ email }) {
   const [sent, setSent] = useState(false);
@@ -12,10 +11,10 @@ export default function ContactSection({ email }) {
 
   function validate() {
     const e = {};
-    if (!form.name.trim()) e.name = "Requis";
+    if (!form.name.trim()) e.name = "Indiquez votre nom.";
     if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
-      e.email = "Email invalide";
-    if (!form.message.trim()) e.message = "Requis";
+      e.email = "Vérifiez l'adresse, il manque le @ ou le domaine.";
+    if (!form.message.trim()) e.message = "Décrivez votre besoin en quelques lignes.";
     return e;
   }
 
@@ -43,48 +42,38 @@ export default function ContactSection({ email }) {
   }
 
   const fieldClass = (field) =>
-    `w-full rounded-xl border bg-white/[0.04] px-[15px] py-[13px] text-sm text-ink outline-none transition placeholder:text-muted focus:border-bright focus:bg-white/[0.06] ${
-      errors[field] ? "border-[#ff8a8a]" : "border-white/[0.14]"
+    `w-full rounded-lg border bg-white/[0.03] px-[14px] py-[12px] text-[15px] text-ink outline-none transition placeholder:text-muted focus:border-bright focus:bg-white/[0.06] ${
+      errors[field] ? "border-[#ff9a9a]" : "border-white/[0.14]"
     }`;
 
   return (
     <section id="contact" className="scroll-mt-20 py-[88px]">
-      <div className="relative overflow-hidden rounded-[24px] border border-white/[0.18] bg-gradient-to-br from-[#0f1a22] to-[#0b0f17] p-[clamp(26px,4vw,48px)]">
-        <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-white/55 to-white/40" />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-20 -top-[120px] h-[340px] w-[340px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.07),transparent_70%)]"
-        />
-
-        <div className="relative mb-8 flex flex-wrap items-start justify-between gap-[18px]">
-          <div>
-            <h2 className="font-display text-[clamp(30px,4.4vw,50px)] font-semibold leading-[1.05] tracking-[-0.02em]">
-              Discutons de votre besoin
-            </h2>
-            <p className="mt-4 max-w-[52ch] text-[15.5px] leading-[1.6] text-body">
-              Intégration d'API, Sage X3, Power Platform ou support applicatif
-              — décrivez votre projet en quelques lignes, je vous réponds
-              rapidement.
-            </p>
-          </div>
+      <div className="grid gap-x-16 gap-y-10 border-t border-white/[0.14] pt-10 min-[860px]:grid-cols-[0.85fr_1.15fr]">
+        <div>
+          <h2 className="max-w-[16ch] font-display text-[clamp(30px,4.4vw,46px)] font-semibold leading-[1.05] tracking-[-0.02em]">
+            Discutons de votre besoin
+          </h2>
+          <p className="mt-5 max-w-[46ch] text-[15.5px] leading-[1.65] text-body">
+            Intégration d'API, Sage X3, Power Platform ou support applicatif.
+            Décrivez votre projet en quelques lignes, je vous réponds
+            rapidement.
+          </p>
           <a
             href={`mailto:${email}`}
-            className="inline-flex items-center gap-2.5 rounded-full border border-white/16 px-4 py-2.5 font-mono text-[12.5px] text-body transition hover:border-white/60 hover:text-bright"
+            className="mt-6 inline-block font-mono text-[13.5px] text-body underline decoration-white/25 underline-offset-4 transition hover:text-bright hover:decoration-signal"
           >
             {email}
           </a>
         </div>
 
         {sent ? (
-          <div className="relative flex flex-col items-center gap-3 rounded-[18px] border border-white/25 bg-white/5 px-6 py-14 text-center">
-            <div className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-bright text-2xl font-bold text-night">
-              ✓
-            </div>
-            <p className="font-display text-[22px] font-semibold text-ink">
-              Message préparé !
+          <div className="flex flex-col items-start gap-3 self-start border-l-2 border-signal pl-5">
+            <p className="font-display text-[20px] font-semibold text-ink">
+              Votre client mail est ouvert
             </p>
-            <p className="text-sm text-muted">
-              Votre client mail s'est ouvert avec les informations pré-remplies.
+            <p className="max-w-[46ch] text-[15px] leading-[1.6] text-body">
+              Le message est pré-rempli avec vos informations. Il ne reste plus
+              qu'à l'envoyer depuis votre messagerie.
             </p>
             <button
               type="button"
@@ -93,37 +82,39 @@ export default function ContactSection({ email }) {
                 setForm(EMPTY_FORM);
                 setErrors({});
               }}
-              className="mt-2 font-mono text-xs uppercase tracking-[0.06em] text-bright transition hover:text-white"
+              className="mt-1 text-[14px] text-bright underline underline-offset-4 transition hover:decoration-signal"
             >
-              Nouveau message
+              Écrire un autre message
             </button>
           </div>
         ) : (
           <form
             onSubmit={handleSubmit}
             noValidate
-            className="relative grid grid-cols-1 gap-4 min-[620px]:grid-cols-2"
+            className="grid grid-cols-1 gap-4 min-[620px]:grid-cols-2"
           >
-            <div className="flex flex-col gap-[7px]">
+            <div className="flex flex-col gap-2">
               <label htmlFor="contact-name" className={labelClass}>
-                Nom *
+                Nom
               </label>
               <input
                 id="contact-name"
                 name="name"
                 value={form.name}
                 onChange={handleChange}
-                placeholder="Votre nom"
+                aria-invalid={errors.name ? "true" : undefined}
                 className={fieldClass("name")}
               />
               {errors.name && (
-                <span className="text-[11px] text-[#ff8a8a]">{errors.name}</span>
+                <span className="text-[13px] text-[#ff9a9a]">
+                  {errors.name}
+                </span>
               )}
             </div>
 
-            <div className="flex flex-col gap-[7px]">
+            <div className="flex flex-col gap-2">
               <label htmlFor="contact-email" className={labelClass}>
-                Email *
+                Email
               </label>
               <input
                 id="contact-email"
@@ -131,33 +122,33 @@ export default function ContactSection({ email }) {
                 type="email"
                 value={form.email}
                 onChange={handleChange}
-                placeholder="votre@email.com"
+                aria-invalid={errors.email ? "true" : undefined}
                 className={fieldClass("email")}
               />
               {errors.email && (
-                <span className="text-[11px] text-[#ff8a8a]">
+                <span className="text-[13px] text-[#ff9a9a]">
                   {errors.email}
                 </span>
               )}
             </div>
 
-            <div className="flex flex-col gap-[7px] min-[620px]:col-span-2">
+            <div className="flex flex-col gap-2 min-[620px]:col-span-2">
               <label htmlFor="contact-subject" className={labelClass}>
-                Sujet
+                Sujet <span className="text-muted">(facultatif)</span>
               </label>
               <input
                 id="contact-subject"
                 name="subject"
                 value={form.subject}
                 onChange={handleChange}
-                placeholder="Ex : Projet intégration Sage X3"
+                placeholder="Projet d'intégration Sage X3"
                 className={fieldClass("subject")}
               />
             </div>
 
-            <div className="flex flex-col gap-[7px] min-[620px]:col-span-2">
+            <div className="flex flex-col gap-2 min-[620px]:col-span-2">
               <label htmlFor="contact-message" className={labelClass}>
-                Message *
+                Message
               </label>
               <textarea
                 id="contact-message"
@@ -165,26 +156,23 @@ export default function ContactSection({ email }) {
                 rows={5}
                 value={form.message}
                 onChange={handleChange}
-                placeholder="Décrivez votre besoin…"
+                aria-invalid={errors.message ? "true" : undefined}
                 className={`${fieldClass("message")} resize-none`}
               />
               {errors.message && (
-                <span className="text-[11px] text-[#ff8a8a]">
+                <span className="text-[13px] text-[#ff9a9a]">
                   {errors.message}
                 </span>
               )}
             </div>
 
-            <div className="flex items-center gap-4 min-[620px]:col-span-2">
+            <div className="min-[620px]:col-span-2">
               <button
                 type="submit"
-                className="inline-flex items-center gap-2.5 rounded-xl bg-bright px-[26px] py-3.5 font-display text-[15px] font-semibold text-night transition hover:bg-white"
+                className="inline-flex items-center rounded-lg bg-bright px-6 py-3.5 font-display text-[15px] font-semibold text-night transition hover:bg-white"
               >
-                Envoyer le message
+                Ouvrir mon client mail
               </button>
-              <span className="text-[11px] text-muted">
-                * champs obligatoires
-              </span>
             </div>
           </form>
         )}

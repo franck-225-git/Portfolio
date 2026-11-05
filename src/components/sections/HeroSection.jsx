@@ -47,7 +47,7 @@ export default function HeroSection({ profile, stats }) {
         </div>
 
         <div className="enter flex flex-col gap-4" style={step(2)}>
-          <div className="overflow-hidden rounded-[22px] border border-white/[0.12] bg-[#10151e]">
+          <div className="relative overflow-hidden rounded-[22px] border border-white/[0.12] bg-[#10151e]">
             {imageBroken ? (
               <div className="flex h-[360px] items-center justify-center">
                 <span className="font-display text-lg text-muted">
@@ -55,12 +55,20 @@ export default function HeroSection({ profile, stats }) {
                 </span>
               </div>
             ) : (
-              <img
-                src={profile.profileImage}
-                alt={profile.name}
-                onError={() => setImageBroken(true)}
-                className="block h-[360px] w-full object-cover object-top grayscale contrast-[1.06] transition-[filter] duration-500 hover:grayscale-0 hover:contrast-100"
-              />
+              <>
+                <img
+                  src={profile.profileImage}
+                  alt={profile.name}
+                  onError={() => setImageBroken(true)}
+                  className="block h-[360px] w-full object-cover object-top grayscale brightness-[0.82] contrast-[1.04] transition-[filter] duration-500 hover:grayscale-0 hover:brightness-100"
+                />
+                {/* Fond studio tres clair : on le fond dans la page pour que
+                    le titre reste l'element dominant. */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night via-night/25 to-transparent"
+                />
+              </>
             )}
           </div>
 
